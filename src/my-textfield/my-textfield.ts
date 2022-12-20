@@ -4,7 +4,7 @@ import { customElement, property } from 'lit/decorators.js'
 @customElement('my-textfield')
 export class MyTextfield extends LitElement {
   @property()
-  placeholder: string = '';
+  placeholder: string = ''
 
   render() {
     return html`

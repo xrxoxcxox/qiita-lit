@@ -1,18 +1,22 @@
 import { LitElement, css, html } from 'lit'
-import { customElement } from 'lit/decorators.js'
+import { customElement, property } from 'lit/decorators.js'
 
+type Priority = 'primary' | 'secondary'
 @customElement('my-button')
 export class MyButton extends LitElement {
+
+  @property()
+  priority: Priority = 'primary'
+
   render() {
     return html`
-      <button><slot></slot></button>
+      <button class=${this.priority}><slot></slot></button>
     `
   }
 
   static styles = css`
     button {
       appearance: none;
-      background-color: #55c500;
       border: none;
       border-radius: 0.5rem;
       color: #fff;
@@ -22,8 +26,17 @@ export class MyButton extends LitElement {
       padding: 0.5rem 1rem;
       transition: background-color 50ms;
     }
-    button:hover {
+    .primary {
+      background-color: #55c500;
+    }
+    .primary:hover {
       background-color: #46a900;
+    }
+    .secondary {
+      background-color: #4790db;
+    }
+    .secondary:hover {
+      background-color: #3683bf;
     }
   `
 }
