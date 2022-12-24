@@ -6,9 +6,15 @@ export class MyTextfield extends LitElement {
   @property()
   placeholder: string = ''
 
+  @property()
+  errorMessage: string = ''
+
   render() {
     return html`
-      <input placeholder=${this.placeholder}>
+      <input placeholder=${this.placeholder} class=${this.errorMessage ? 'error' : ''}>
+      ${this.errorMessage ?
+        html`<span class="error-message">${this.errorMessage}</span>`
+      : null}
     `
   }
 
@@ -19,6 +25,12 @@ export class MyTextfield extends LitElement {
       border-radius: 0.5rem;
       font-size: 1rem;
       padding: 0.5rem 1rem;
+    }
+    .error {
+      border-color: #d00;
+    }
+    .error-message {
+      color: #d00;
     }
   `
 }

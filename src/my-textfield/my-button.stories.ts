@@ -6,3 +6,5 @@ export default {
 }
 
 export const Default = () => html`<my-textfield placeholder="Enter your name"></my-textfield>`
+
+export const Error = () => html`<my-textfield placeholder="Enter your name" errorMessage="Incorrect text!"></my-textfield>`
