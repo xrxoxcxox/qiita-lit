@@ -2,15 +2,20 @@ import { LitElement, css, html } from 'lit'
 import { customElement, property } from 'lit/decorators.js'
 
 type Priority = 'primary' | 'secondary'
+type Size = 'l' | 'm' | 's'
+
 @customElement('my-button')
 export class MyButton extends LitElement {
 
   @property()
   priority: Priority = 'primary'
+  
+  @property()
+  size: Size = 'm'
 
   render() {
     return html`
-      <button class=${this.priority}><slot></slot></button>
+      <button class="${this.priority} ${this.size}"><slot></slot></button>
     `
   }
 
@@ -37,6 +42,15 @@ export class MyButton extends LitElement {
     }
     .secondary:hover {
       background-color: #3683bf;
+    }
+    .l {
+      font-size: 24px;
+    }
+    .m {
+      font-size: 18px;
+    }
+    .s {
+      font-size: 12px;
     }
   `
 }
